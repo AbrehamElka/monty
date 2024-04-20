@@ -14,7 +14,6 @@ void add_to_stack(stack_t **newnode, __attribute__((unused))unsigned int line_nu
 	head = *newnode;
 	head->next = temp;
 	temp->prev = head;
-	printf("worked\n");
 }
 
 void print_stack(stack_t **stack, __attribute__((unused))unsigned int line_number)
