@@ -7,6 +7,11 @@ int is_digit(char *val)
 
 	while (val[i] != '\0')
 	{
+		if (val[i] == '-' && i == 0)
+		{
+			i++;
+			continue;
+		}
 		if (isdigit(val[i]))
 		{
 			i++;
