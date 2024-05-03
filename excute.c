@@ -84,6 +84,7 @@ void excute(char *file)
 			parse_line(line, ln);
 		ln++;
 	}
+	free(line);
 	fclose(fh);
 }
 
