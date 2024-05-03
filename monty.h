@@ -34,13 +34,14 @@ typedef struct instruction_s
 extern stack_t *head;
 typedef void (*op_f)(stack_t **stack, unsigned int line_number);
 
-void parse_line(char *line);
+void parse_line(char *line, unsigned int ln);
 void excute(char *file);
-void find_func(char *op, char *val);
-void call_func(void (*f)(stack_t **stack, unsigned int line_number), char *op, char *val);
+void find_func(char *op, char *val, unsigned int ln);
+void call_func(void (*f)(stack_t **stack, unsigned int line_number), char *op, char *val, unsigned int ln);
 
 stack_t *creat_node(int n);
 void free_nodes(void);
 void add_to_stack(stack_t **stack, unsigned int line_number);
 void print_stack(stack_t **stack, unsigned int line_number);
+int is_digit(char *val);
 #endif
