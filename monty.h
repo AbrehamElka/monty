@@ -17,7 +17,6 @@ typedef struct stack_s
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
-
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -41,7 +40,7 @@ void call_func(void (*f)(stack_t **stack, unsigned int line_number), char *op, c
 
 stack_t *creat_node(int n);
 void free_nodes(void);
-void add_to_stack(stack_t **stack, unsigned int line_number);
-void print_stack(stack_t **stack, unsigned int line_number);
+void add_(stack_t **stack, unsigned int line_number);
+void print_(stack_t **stack, unsigned int line_number);
 int is_digit(char *val);
 #endif

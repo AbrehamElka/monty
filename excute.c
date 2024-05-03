@@ -2,6 +2,13 @@
 #include "monty.h"
 #include <string.h>
 #include <ctype.h>
+/**
+ * parse_line - parse a line.
+ * @line: the line to parse.
+ * @ln: the line number.
+ *
+ * Return: Nothing.
+ */
 void parse_line(char *line, unsigned int ln)
 {
 	char *opcode;
@@ -18,13 +25,21 @@ void parse_line(char *line, unsigned int ln)
 	}
 	find_func(opcode, val, ln);
 }
+/**
+ * find_func - finds the instruction from the list.
+ * @op: the function to search.
+ * @val: the value given after the opcode.
+ * @ln: the line number.
+ *
+ * Return: Nothing.
+ */
 void find_func(char *op, char *val, unsigned int ln)
 {
 	int i;
 	int flag = 1;
 	instruction_t func_list[] = {
-		{"push", add_to_stack},
-		{"pall", print_stack},
+		{"push", add_},
+		{"pall", print_},
 		{NULL, NULL}
 	};
 
@@ -43,6 +58,15 @@ void find_func(char *op, char *val, unsigned int ln)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * call_func - calls the instruction.
+ * @f: the function to be called.
+ * @op: the instruction.
+ * @val: the value after the instruction.
+ * @ln: the line number.
+ *
+ * Return: Nothing.
+ */
 void call_func(op_f f, char *op, char *val, unsigned int ln)
 {
 	stack_t *node;
@@ -65,6 +89,12 @@ void call_func(op_f f, char *op, char *val, unsigned int ln)
 			f(&head, 0);
 	}
 }
+/**
+ * excute - excutes the instructions in a file.
+ * @file: the file to be processed.
+ *
+ * Return: Nothing.
+ */
 void excute(char *file)
 {
 	FILE *fh;

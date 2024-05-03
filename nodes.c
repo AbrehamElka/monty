@@ -1,6 +1,12 @@
 #include "monty.h"
 #include <string.h>
 #include <ctype.h>
+/**
+ * is_digit - checks if a string is intiger.
+ * @val: the string.
+ *
+ * Return: 1 on success.
+ */
 int is_digit(char *val)
 {
 	int i = 0;
@@ -22,6 +28,12 @@ int is_digit(char *val)
 	}
 	return (1);
 }
+/**
+ * creat_node - creates a new node.
+ * @n: the value for the new node.
+ *
+ * Return: a pointer that is a new node.
+ */
 stack_t *creat_node(int n)
 {
 	stack_t *temp;
@@ -39,7 +51,9 @@ stack_t *creat_node(int n)
 
 	return (temp);
 }
-
+/**
+ * free_nodes - frees all the allocated memory.
+ */
 void free_nodes(void)
 {
 	stack_t *temp;

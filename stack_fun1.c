@@ -1,5 +1,12 @@
 #include "monty.h"
-void add_to_stack(stack_t **newnode, __attribute__((unused))unsigned int line_number)
+/**
+ * add_ - adds a node to the stack.
+ * @newnode: the newnode.
+ * @line_number: the line number.
+ *
+ * Return: Nothing.
+ */
+void add_(stack_t **newnode, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -15,10 +22,17 @@ void add_to_stack(stack_t **newnode, __attribute__((unused))unsigned int line_nu
 	head->next = temp;
 	temp->prev = head;
 }
-
-void print_stack(stack_t **stack, __attribute__((unused))unsigned int line_number)
+/**
+ * print_ - prints the values of the stack.
+ * @stack: the top of the stack.
+ * @line_number: the line number.
+ *
+ * Return: Nothing.
+ */
+void print_(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp;
+
 	if (*stack == NULL)
 		return;
 
