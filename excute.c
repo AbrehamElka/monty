@@ -1,14 +1,21 @@
 #define _POSIX_C_SOURCE 200809L
 #include "monty.h"
 #include <string.h>
+#include <ctype.h>
 void parse_line(char *line, unsigned int ln)
 {
 	char *opcode;
 	char *val;
-	char *dilm = "\n ";
+	char *dilm = " \n\t";
 
 	opcode = strtok(line, dilm);
 	val = strtok(NULL, dilm);
+	if (val == NULL && strcmp(opcode, "push") == 0)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", ln);
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	find_func(opcode, val, ln);
 }
 void find_func(char *op, char *val, unsigned int ln)
@@ -45,21 +52,38 @@ void call_func(op_f f, char *op, char *val, unsigned int ln)
 		f(&node, 0);
 	}
 	else
-		f(&head, 0);
+	{
+		if (f != NULL)
+			f(&head, 0);
+	}
 }
 void excute(char *file)
 {
 	FILE *fh;
 	char *line = NULL;
 	size_t len = 0;
-	unsigned int ln = 0;
+	unsigned int ln = 1;
+	int i;
+	int is_blank_line;
 
 	fh = fopen(file, "r");
 
 	while (getline(&line, &len, fh) != -1)
 	{
-		parse_line(line, ln);
+		is_blank_line = 1;
+		i = 0;
+		for (; line[i] != '\0'; i++)
+		{
+			if (!isspace(line[i]))
+			{
+				is_blank_line = 0;
+				break;
+			}
+		}
+		if (!is_blank_line)
+			parse_line(line, ln);
 		ln++;
 	}
 	fclose(fh);
 }
+

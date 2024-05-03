@@ -1,5 +1,4 @@
-push 9
-push      84f
-     push      
-     push      a    
-    pall 
+push 1
+push       2
+pall
+push
