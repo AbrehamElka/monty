@@ -77,7 +77,7 @@ void excute(char *file)
 	fh = fopen(file, "r");
 	if (fh == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s", file);
+		fprintf(stderr, "Error: Can't open file %s\n", file);
 		exit(EXIT_FAILURE);
 	}
 
