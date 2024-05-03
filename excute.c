@@ -21,6 +21,7 @@ void parse_line(char *line, unsigned int ln)
 void find_func(char *op, char *val, unsigned int ln)
 {
 	int i;
+	int flag = 1;
 	instruction_t func_list[] = {
 		{"push", add_to_stack},
 		{"pall", print_stack},
@@ -31,8 +32,15 @@ void find_func(char *op, char *val, unsigned int ln)
 	{
 		if (strcmp(op, func_list[i].opcode) == 0)
 		{
+			flag = 0;
 			call_func(func_list[i].f, op, val, ln);
 		}
+	}
+	if (flag)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", ln, op);
+		free_nodes();
+		exit(EXIT_FAILURE);
 	}
 }
 void call_func(op_f f, char *op, char *val, unsigned int ln)
@@ -67,6 +75,11 @@ void excute(char *file)
 	int is_blank_line;
 
 	fh = fopen(file, "r");
+	if (fh == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s", file);
+		exit(EXIT_FAILURE);
+	}
 
 	while (getline(&line, &len, fh) != -1)
 	{
