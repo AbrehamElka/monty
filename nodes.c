@@ -24,7 +24,7 @@ stack_t *creat_node(int n)
 	temp = (stack_t *)malloc(sizeof(stack_t));
 	if (temp == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
