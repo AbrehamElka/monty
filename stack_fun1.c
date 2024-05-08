@@ -61,6 +61,7 @@ void pop_(stack_t **stack, unsigned int ln)
 	}
 	if ((*stack)->next == NULL)
 	{
+		free(*stack);
 		*stack = NULL;
 	}
 	else 
