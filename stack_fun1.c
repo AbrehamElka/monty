@@ -52,3 +52,21 @@ void pint_(stack_t **head, unsigned int line_number)
 	}
 	printf("%d\n", (*head)->n);
 }
+void pop_(stack_t **stack, unsigned int ln)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->next == NULL)
+	{
+		*stack = NULL;
+	}
+	else 
+	{
+		(*stack) = (*stack)->next;
+		free((*stack)->prev);
+		(*stack)->prev = NULL;
+	}
+}
