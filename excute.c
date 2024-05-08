@@ -40,6 +40,7 @@ void find_func(char *op, char *val, unsigned int ln)
 	instruction_t func_list[] = {
 		{"push", add_},
 		{"pall", print_},
+		{"pint", pint_},
 		{NULL, NULL}
 	};
 
@@ -81,12 +82,12 @@ void call_func(op_f f, char *op, char *val, unsigned int ln)
 		}
 		node = creat_node(atoi(val));
 
-		f(&node, 0);
+		f(&node, ln);
 	}
 	else
 	{
 		if (f != NULL)
-			f(&head, 0);
+			f(&head, ln);
 	}
 }
 /**
