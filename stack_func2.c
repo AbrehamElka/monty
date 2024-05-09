@@ -1,5 +1,11 @@
 #include "monty.h"
-
+/**
+ * swap_ - swaps the top two stacks.
+ * @stack: the top of the stack.
+ * @ln: the line number.
+ *
+ * Return: Nothing.
+ */
 void swap_(stack_t **stack, unsigned int ln)
 {
 	int x;
@@ -15,6 +21,13 @@ void swap_(stack_t **stack, unsigned int ln)
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = x;
 }
+/**
+ * add_s - adds the top of the two stacks.
+ * @stack: top of the stack.
+ * @ln: the line number.
+ *
+ * Return: Nothing.
+ */
 void add_s(stack_t **stack, unsigned int ln)
 {
 	int sum = 0;
@@ -32,7 +45,15 @@ void add_s(stack_t **stack, unsigned int ln)
 	(*stack)->prev = NULL;
 	(*stack)->n = sum;
 }
-void nop_(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int ln)
+/**
+ * nop - does nothing.
+ * @s: top of the stack.
+ * @l: the line number.
+ *
+ * Return: Nothing.
+ */
+void nop(stack_t **s, unsigned int l)
 {
-	
+	(void)s;
+	(void)l;
 }

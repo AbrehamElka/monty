@@ -43,6 +43,13 @@ void print_(stack_t **stack, __attribute__((unused))unsigned int line_number)
 		temp = temp->next;
 	}
 }
+/**
+ * pint_ - prints top of the stack.
+ * @head: top of the stack.
+ * @line_number: the line number.
+ *
+ * Return: Nothing.
+ */
 void pint_(stack_t **head, unsigned int line_number)
 {
 	if (*head == NULL)
@@ -52,6 +59,13 @@ void pint_(stack_t **head, unsigned int line_number)
 	}
 	printf("%d\n", (*head)->n);
 }
+/**
+ * pop_ - removes top of the stack.
+ * @stack: top of the stack.
+ * @ln: line number.
+ *
+ * Return: Nothing.
+ */
 void pop_(stack_t **stack, unsigned int ln)
 {
 	if (*stack == NULL)
@@ -64,7 +78,7 @@ void pop_(stack_t **stack, unsigned int ln)
 		free(*stack);
 		*stack = NULL;
 	}
-	else 
+	else
 	{
 		(*stack) = (*stack)->next;
 		free((*stack)->prev);

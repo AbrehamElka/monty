@@ -46,6 +46,6 @@ void pint_(stack_t **head, unsigned int line_number);
 void pop_(stack_t **stack, unsigned int ln);
 void swap_(stack_t **stack, unsigned int ln);
 void add_s(stack_t **stack, unsigned int ln);
-void nop_(stack_t **stack, unsigned int ln);
+void nop(stack_t **stack, unsigned int ln);
 int is_digit(char *val);
 #endif
