@@ -32,3 +32,7 @@ void add_s(stack_t **stack, unsigned int ln)
 	(*stack)->prev = NULL;
 	(*stack)->n = sum;
 }
+void nop_(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int ln)
+{
+	
+}
