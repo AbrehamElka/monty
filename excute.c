@@ -42,6 +42,7 @@ void find_func(char *op, char *val, unsigned int ln)
 		{"pall", print_},
 		{"pint", pint_},
 		{"pop", pop_},
+		{"swap", swap_},
 		{NULL, NULL}
 	};
 
