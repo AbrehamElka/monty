@@ -15,3 +15,20 @@ void swap_(stack_t **stack, unsigned int ln)
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = x;
 }
+void add_s(stack_t **stack, unsigned int ln)
+{
+	int sum = 0;
+
+	if ((*stack) == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", ln);
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
+
+	sum = (*stack)->n + (*stack)->next->n;
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+	(*stack)->n = sum;
+}
